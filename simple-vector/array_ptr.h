@@ -44,7 +44,7 @@ public:
     ArrayPtr& operator=(const ArrayPtr&) = delete;
     ArrayPtr& operator=(ArrayPtr&& rhs) noexcept {
         if (this != &rhs) {
-            raw_ptr_ = std::exchange(rhs.raw_ptr_, nullptr);
+            raw_ptr_ = std::exchange(rhs.raw_ptr_, raw_ptr_);
         }
         return *this;
     }
