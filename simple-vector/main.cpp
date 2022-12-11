@@ -159,5 +159,28 @@ int main() {
     TestNoncopiablePushBack();
     TestNoncopiableInsert();
     TestNoncopiableErase();
+
+    SimpleVector<int> v;
+    cout << v.IsEmpty() << endl;
+    v.Reserve(10);
+    v.PushBack(2);
+    v.Insert(v.begin(), 1);
+    v.PushBack(3);
+    cout << "capasity " << v.GetCapacity() << ", size "<< v.GetSize() << endl;
+    v.Resize(2);
+    cout << "capasity " << v.GetCapacity() << ", size " << v.GetSize() << endl;
+    cout << "v[0] " << v[0] << ", v.at(0) " << v.At(0) << endl;
+    SimpleVector<int> vec = { 1, 2, 3, 4, 5 };
+    v.swap(vec);
+    cout << "capasity " << v.GetCapacity() << ", size " << v.GetSize() << endl;
+    v.Erase(v.begin());
+    v.PopBack();
+    for (const auto& el : v) {
+        cout << el << " ";
+    }
+    cout << endl;
+    v.Clear();
+    cout << "capasity " << v.GetCapacity() << ", size " << v.GetSize() << endl;
+
     return 0;
 }
